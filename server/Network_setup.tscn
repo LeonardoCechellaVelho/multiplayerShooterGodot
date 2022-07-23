@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI.gd" type="Script" id=1]
+[ext_resource path="res://server/Network_setup.gd" type="Script" id=2]
+[ext_resource path="res://assets/base_font.tres" type="DynamicFont" id=3]
+
+[node name="Network_setup" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Multiplayer_configure" type="Control" parent="."]
+margin_right = 1922.0
+margin_bottom = 1081.0
+
+[node name="Create_server" type="Button" parent="Multiplayer_configure"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -188.0
+margin_right = 225.0
+margin_bottom = -68.0
+custom_fonts/font = ExtResource( 3 )
+text = "Create Server"
+
+[node name="Join_server" type="Button" parent="Multiplayer_configure"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -16.0
+margin_right = 225.0
+margin_bottom = 104.0
+custom_fonts/font = ExtResource( 3 )
+text = "Join Server"
+
+[node name="Username_text_edit" type="LineEdit" parent="Multiplayer_configure"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -367.0
+margin_top = 152.0
+margin_right = 367.0
+margin_bottom = 237.0
+custom_fonts/font = ExtResource( 3 )
+align = 1
+placeholder_text = "enter username"
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 1 )
+
+[node name="Device_ip_address" type="Label" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -189.0
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
+
+[node name="Start_game" type="Button" parent="UI"]
+margin_left = 27.0
+margin_top = 27.0
+margin_right = 391.0
+margin_bottom = 158.0
+custom_fonts/font = ExtResource( 3 )
+text = "Start Game"
+
+[node name="Spawn_locations" type="Node" parent="."]
+
+[node name="1" type="Position2D" parent="Spawn_locations"]
+position = Vector2( 192, 192 )
+
+[node name="2" type="Position2D" parent="Spawn_locations"]
+position = Vector2( 1728, 192 )
+
+[node name="3" type="Position2D" parent="Spawn_locations"]
+position = Vector2( 960, 192 )
+
+[node name="4" type="Position2D" parent="Spawn_locations"]
+position = Vector2( 192, 896 )
+
+[node name="5" type="Position2D" parent="Spawn_locations"]
+position = Vector2( 960, 896 )
+
+[node name="6" type="Position2D" parent="Spawn_locations"]
+position = Vector2( 1728, 896 )
+
+[connection signal="pressed" from="Multiplayer_configure/Create_server" to="." method="_on_Create_server_pressed"]
+[connection signal="pressed" from="Multiplayer_configure/Join_server" to="." method="_on_Join_server_pressed"]
+[connection signal="pressed" from="UI/Start_game" to="." method="_on_Start_game_pressed"]
